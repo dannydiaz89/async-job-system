@@ -1,0 +1,50 @@
+# Dependencies and build output
+node_modules/
+dist/
+dist-ssr/
+*.tsbuildinfo
+
+# Secrets and local configuration.
+# .env holds local credentials and is never committed; .env.example documents the keys.
+.env
+.env.*
+!.env.example
+
+# Test and coverage output
+coverage/
+.nyc_output/
+*.lcov
+
+# Logs
+*.log
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Caches
+.cache/
+.eslintcache
+.pnpm-store/
+*.local
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+desktop.ini
+
+# Scratch
+tmp/
+temp/
+
+# Note: pnpm-lock.yaml is intentionally tracked. The Docker build runs
+# `pnpm install --frozen-lockfile`, which fails without it.

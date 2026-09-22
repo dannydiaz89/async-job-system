@@ -1,0 +1,79 @@
+:root {
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #18232d;
+  background: #f5f6f8;
+  line-height: 1.5;
+  --line: #d1d7df;
+  --muted: #5d6b7a;
+}
+
+body { margin: 0; }
+main { max-width: 1040px; margin: 40px auto; padding: 0 24px; }
+
+header { margin-bottom: 24px; }
+h1 { margin: 0 0 8px; font-size: 1.75rem; }
+h2 { margin: 0 0 12px; font-size: 1.1rem; }
+
+section {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 6px;
+}
+
+.section-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.section-head h2 { margin-bottom: 0; }
+
+.status { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 0.9rem; }
+.dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+.dot-ok { background: #1f9254; }
+.dot-bad { background: #c0392b; }
+
+.hint { color: var(--muted); font-size: 0.85rem; margin: 8px 0; }
+.error { color: #a5281b; background: #fdf0ee; border: 1px solid #f0c4bd; padding: 8px 10px; border-radius: 4px; font-size: 0.875rem; }
+.notice { color: #17603a; background: #eefaf2; border: 1px solid #b9e2cb; padding: 8px 10px; border-radius: 4px; font-size: 0.875rem; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin: 14px 0; }
+label { display: flex; flex-direction: column; gap: 4px; font-size: 0.875rem; }
+label.inline { flex-direction: row; align-items: center; gap: 8px; }
+label > span { font-weight: 600; }
+label small { color: var(--muted); font-size: 0.78rem; }
+input, select { padding: 6px 8px; border: 1px solid var(--line); border-radius: 4px; font: inherit; background: white; }
+select:disabled { background: #eef0f3; color: var(--muted); }
+
+.actions { display: flex; gap: 10px; margin-top: 4px; }
+button { padding: 7px 14px; border: 1px solid var(--line); border-radius: 4px; background: white; font: inherit; cursor: pointer; }
+button:hover:not(:disabled) { background: #eef1f5; }
+button:disabled { opacity: 0.55; cursor: default; }
+button.link { border: none; background: none; padding: 0; color: #1c5b9c; text-decoration: underline; cursor: pointer; font-family: ui-monospace, monospace; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.875rem; }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid #eceff3; }
+th { color: var(--muted); font-weight: 600; font-size: 0.8rem; }
+td.empty { text-align: center; color: var(--muted); padding: 24px; }
+tr.detail td { background: #fafbfc; }
+tr.detail dl { display: grid; grid-template-columns: max-content 1fr; gap: 3px 16px; margin: 6px 0; font-size: 0.83rem; }
+tr.detail dt { color: var(--muted); }
+tr.detail dd { margin: 0; }
+.mono { font-family: ui-monospace, monospace; font-size: 0.82rem; }
+
+.badge { display: inline-block; padding: 1px 7px; border-radius: 10px; font-size: 0.73rem; font-weight: 600; letter-spacing: 0.02em; }
+.badge-pending { background: #eceff3; color: #4a5765; }
+.badge-running { background: #dbeafe; color: #1a4e8a; }
+.badge-retrying { background: #fdf0d5; color: #8a5a10; }
+.badge-completed { background: #d9f2e3; color: #17603a; }
+.badge-failed { background: #fbdfdb; color: #a5281b; }
+.badge-cancelled { background: #e6e3f0; color: #53468a; }
+.badge-chaos { background: #fdf0d5; color: #8a5a10; }
+
+.progress { position: relative; height: 26px; background: #eceff3; border-radius: 4px; overflow: hidden; margin: 12px 0; }
+.progress-fill { height: 100%; background: #9fc9ea; transition: width 0.3s ease; }
+.progress-text { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 600; }
+
+.metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; margin-top: 12px; }
+.metric { padding: 8px 10px; background: #f8f9fb; border: 1px solid #eceff3; border-radius: 4px; }
+.metric-label { display: block; color: var(--muted); font-size: 0.75rem; }
+.metric-value { display: block; font-size: 1.05rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.pager { display: flex; align-items: center; gap: 12px; margin-top: 12px; font-size: 0.85rem; color: var(--muted); }

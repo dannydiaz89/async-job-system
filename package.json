@@ -1,0 +1,28 @@
+{
+  "name": "async-job-system",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.28.2",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "pnpm -r --if-present build",
+    "typecheck": "pnpm --filter @async-jobs/database build && pnpm -r --if-present typecheck",
+    "dev": "pnpm --parallel --filter './apps/*' dev",
+    "migrate": "pnpm --filter @async-jobs/database migrate",
+    "db:up": "docker compose up -d postgres && pnpm migrate",
+    "test": "pnpm build && node --import tsx --test 'tests/**/*.test.ts'",
+    "overhead": "pnpm --filter @async-jobs/worker build && node --import tsx --env-file-if-exists=.env scripts/overhead.ts",
+    "scaling": "pnpm --filter @async-jobs/worker build && node --import tsx --env-file-if-exists=.env scripts/scaling.ts",
+    "test:smoke": "SMOKE_REQUIRE_STACK=true node --import tsx --test tests/integration/scaffold.test.ts"
+  },
+  "devDependencies": {
+    "@async-jobs/contracts": "workspace:*",
+    "@async-jobs/database": "workspace:*",
+    "@types/node": "^24.13.6",
+    "pg": "8.23.0",
+    "tsx": "^4.23.15",
+    "typescript": "5.9.3"
+  }
+}

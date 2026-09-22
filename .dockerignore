@@ -1,0 +1,50 @@
+# Keep the build context small and never copy host state into an image.
+# The build runs `pnpm install` and `pnpm build` inside the container, so host
+# dependencies and build output would only be stale.
+**/node_modules
+**/dist
+**/*.tsbuildinfo
+
+# Secrets. Excluding .env keeps local credentials out of image layers;
+# Compose supplies configuration through the environment at run time instead.
+.env
+.env.*
+!.env.example
+
+# Version control and CI
+.git
+.gitignore
+.github
+
+# Docker's own files are not needed inside the image
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# Documentation. Excluding it also keeps doc edits from invalidating the
+# `COPY . .` layer and forcing a full rebuild.
+*.md
+
+# Test and coverage output
+**/coverage
+.nyc_output
+
+# Logs
+**/*.log
+
+# Editors
+.vscode
+.idea
+*.swp
+*~
+
+# OS
+**/.DS_Store
+**/._*
+Thumbs.db
+
+# Host-only tooling. Nothing in the image runs these: no tsconfig includes them,
+# and the three runtime targets start from compiled output under apps/*/dist.
+# scripts/ imports tests/support, so the two are excluded together.
+tests
+scripts

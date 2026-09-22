@@ -1,0 +1,16 @@
+{
+  "name": "@async-jobs/worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dev": "tsx watch --include '../../packages/*/src/**/*.ts' --conditions=development --env-file-if-exists=../../.env src/index.ts",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@async-jobs/contracts": "workspace:*",
+    "@async-jobs/database": "workspace:*"
+  },
+  "devDependencies": { "@types/pg": "^8.16.0" }
+}
