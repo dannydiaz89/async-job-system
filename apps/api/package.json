@@ -13,7 +13,7 @@
     "@async-jobs/database": "workspace:*",
     "express": "^5.2.1",
     "swagger-ui-express": "5.0.1",
-    "zod": "4.6.5"
+    "zod": "4.6.6"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
